@@ -1,15 +1,20 @@
-import React from 'react'
-import Navbar from './components/Navabr/Navabr'
-import Hero from './components/Hero/Hero'
-import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import Home from "./components/Hero/Hero.jsx";
 
-const App = () => {
+function App() {
   return (
-    <>
-      <Navbar />
-      <Hero/>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/home" element={<Home />} />
+
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
