@@ -25,7 +25,7 @@ const Login = () => {
         password,
       });
 
-      // ✅ store token
+      // Save token
       localStorage.setItem("token", res.data.token);
 
       alert("Login Success");
@@ -33,7 +33,10 @@ const Login = () => {
       navigate("/home");
     } catch (error) {
       console.log(error);
-      alert(error.response?.data?.message || "Login Failed");
+
+      alert(
+        error.response?.data?.message || "Login Failed"
+      );
     } finally {
       setLoading(false);
     }
