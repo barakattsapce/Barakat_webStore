@@ -8,12 +8,13 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !passwordConfirmation) {
       alert("All fields are required");
       return;
     }
@@ -25,6 +26,7 @@ const Signup = () => {
         name,
         email,
         password,
+        password_confirmation: passwordConfirmation,
       });
 
       alert("Account Created Successfully");
@@ -67,6 +69,13 @@ const Signup = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="w-full py-2 border-b outline-none"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
             className="w-full py-2 border-b outline-none"
           />
 
