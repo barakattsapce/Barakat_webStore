@@ -3,6 +3,10 @@ import { FaStar } from "react-icons/fa";
 
 const Feature = () => {
     return (
+        <>
+                    <h1 className="ml-10 text-2xl font-bold transform translate-y-10">Features </h1>
+
+
         <div className="flex w-full h-[60vh] gap-6 mt-10 justify-center items-center px-4">
 
             {/* box 1 */}
@@ -13,7 +17,7 @@ const Feature = () => {
                         className="object-cover w-full h-full"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRFRDjWs78OK2fg0Rn38mg7WR-pDy6RAT8BQ&s"
                         alt=""
-                    />
+                        />
                 </div>
 
                 <div className="flex items-center justify-between px-2 mt-3">
@@ -40,7 +44,7 @@ const Feature = () => {
                         className="object-cover w-full h-full"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs3nuAkuhi_j7z0aJfGkd8HuYKrSW5y7tz7w&s"
                         alt=""
-                    />
+                        />
                 </div>
 
                 <div className="flex items-center justify-between px-2 mt-3">
@@ -67,7 +71,7 @@ const Feature = () => {
                         className="object-cover w-full h-full"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTEoUyaHItovO6OBlnXfBjlq0HadfT6Pd9ow&s"
                         alt=""
-                    />
+                        />
                 </div>
 
                 <div className="flex items-center justify-between px-2 mt-3">
@@ -94,7 +98,7 @@ const Feature = () => {
                         className="object-cover w-full h-full"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTikrBIqFQyrwAlZI9d3n-eJWjUhsKwuZzxzA&s"
                         alt=""
-                    />
+                        />
                 </div>
 
                 <div className="flex items-center justify-between px-2 mt-3">
@@ -114,6 +118,7 @@ const Feature = () => {
             </div>
 
         </div>
+                        </>
     );
 };
 

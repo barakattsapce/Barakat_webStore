@@ -1,37 +1,60 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
+
+import api from "../api/axios";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
 
   const navigate = useNavigate();
 
+  const { login } = useContext(AuthContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const handleLogin = async (e) => {
+
     e.preventDefault();
 
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:8000/api/v1/login",
-        {
-          email,
-          password,
-        }
-      );
+    // validation
+    if (!email || !password) {
+      alert("All fields required");
+      return;
+    }
 
-      // ذخیره توکن
-      localStorage.setItem("token", res.data.token);
+    // email format
+    if (!email.includes("@")) {
+      alert("Invalid email format");
+      return;
+    }
+
+    try {
+
+      setLoading(true);
+
+      const res = await api.post("/login", {
+        email,
+        password,
+      });
+
+      login(res.data.token);
 
       alert("Login Success");
 
-      // رفتن به Home
-      navigate("/home");
+      navigate("/dashboard");
 
     } catch (error) {
+
       console.log(error);
+
       alert("Login Failed");
+
+    } finally {
+
+      setLoading(false);
     }
   };
 
@@ -63,19 +86,25 @@ const Login = () => {
           />
 
           <button className="w-full py-2 text-white bg-blue-600 rounded-lg">
-            Login
+
+            {loading ? "Loading..." : "Login"}
+
           </button>
 
           <p className="text-sm text-center">
+
             Don’t have account?
+
             <Link to="/signup" className="ml-1 text-blue-600">
               Signup
             </Link>
+
           </p>
 
         </form>
 
       </div>
+
     </div>
   );
 };
