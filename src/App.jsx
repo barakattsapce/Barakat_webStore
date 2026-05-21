@@ -6,14 +6,16 @@ import Signup from "../src/pages/Signup.jsx";
 import Dashboard from "../src/pages/Dashboard.jsx";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 
+// 👇 ADD THIS
+import AdminRoutes from "./admin/routes/AdminRoutes.jsx";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<Login />} />
-
         <Route path="/login" element={<Login />} />
-
         <Route path="/signup" element={<Signup />} />
 
         <Route
@@ -24,7 +26,12 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route path="/about" element={<About />} />
+
+        {/* 👇 ADD THIS (Admin Panel وصل شد) */}
+        <Route path="/admin/*" element={<AdminRoutes />} />
+
       </Routes>
     </BrowserRouter>
   );
