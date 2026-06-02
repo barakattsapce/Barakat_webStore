@@ -8,6 +8,7 @@ import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 
 // 👇 ADD THIS
 import AdminRoutes from "./admin/routes/AdminRoutes.jsx";
+import Websites from "./pages/Websites.jsx";
 
 function App() {
   return (
@@ -28,8 +29,8 @@ function App() {
         />
 
         <Route path="/about" element={<About />} />
+        <Route path="/websites" element={<Websites/>}/>
 
-        {/* 👇 ADD THIS (Admin Panel وصل شد) */}
         <Route path="/admin/*" element={<AdminRoutes />} />
 
       </Routes>
